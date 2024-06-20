@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE,edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Sistema VE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .custom-bg {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="col-md-6 offset-md-3 custom-bg">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Cadastro de Usuário</h1>
+                    <p class="text-center">Crie um usuário no sistema.</p>
+                    
+                    <form method="post" th:object="${usuario}" action="/salvarUsuario">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" th:field="*{nome}" name="nome" placeholder="nome de usuário:" id="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" th:field="*{email}" name="email" placeholder="digite seu email:" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control" th:field="*{senha}" name="senha" placeholder="digite sua senha:" id="senha">
+                        </div>
+                       
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                            <a href="/login/login" class="btn btn-success btn-block">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
